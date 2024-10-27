@@ -14,16 +14,29 @@ public class Main {
         String csvFile = "D:\\projects\\git\\csv2xml\\src\\main\\resources\\TemplateCsv.csv";
 
         try (CSVReader reader = new CSVReader(new FileReader(csvFile))) {
+            // Preparar JAXB contexto e marshaller
+            JAXBContext context = JAXBContext.newInstance(People.class);
+            Marshaller marshaller = context.createMarshaller();
+            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+
+            People people = new People(); // Elemento raiz
+
             String[] line;
             while ((line = reader.readNext()) != null) {
-                // Imprime os dados do CSV (linha por linha)
-                for (String value : line) {
-                    System.out.print(value + " ");
-                }
-                System.out.println();
+                People.Person person = new People.Person();
+                person.setName(line[0]);
+                person.setAge(Integer.parseInt(line[1]));
+                person.setOccupation(line[2]);
+                people.getPerson().add(person);
             }
-        } catch (IOException | CsvValidationException e) {
+
+            // Converter para XML e salvar
+            marshaller.marshal(people, new File("output.xml"));
+
+        } catch (IOException | JAXBException e) {
             e.printStackTrace();
+        } catch (CsvValidationException e) {
+            throw new RuntimeException(e);
         }
     }
 }
