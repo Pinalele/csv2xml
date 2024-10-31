@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="urn:x-emc:com.bnpparibas:solar:solar:infoarchive:lama:london:1.9"
+    xmlns="urn:x-emc:com.bnpparibas:solar:solar:infoarchive:lama:london:1.9" elementFormDefault="qualified"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="londonAuditChangesIssueDataElement">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="londonNameElement" type="auditChangesIssueDataObject" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="auditChangesIssueDataObject">
+        <xs:sequence>
+            <xs:element name="trigram" type="xs:string"/>
+            <xs:element name="type_of_data" type="xs:string" />
+            <xs:element name="date_of_extraction" type="xs:date" />
+            <xs:element name="branch" type="xs:string" />
+            <xs:element name="londonAuditChangesIssueData" type="auditChangesAuditData" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="auditChangesAuditData">
+        <xs:sequence>
+            <xs:element name="issue_ref" type="xs:string"/>
+            <xs:element name="description" type="xs:string"/>
+            <xs:element name="date_object_type" type="xs:string"/>
+            <xs:element name="time_object_type" type="xs:string"/>
+            <xs:element name="user_object_type" type="xs:string"/>
+            <xs:element name="last_val" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

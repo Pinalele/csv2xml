@@ -1,12 +1,2 @@
-Alice;30;Engineer
-Bob;25;Designer
-Charlie;35;Manager
-Alice;30;Engineer
-Bob;25;Designer
-Charlie;35;Manager
-Alice;30;Engineer
-Bob;25;Designer
-Charlie;35;Manager
-Alice;30;Engineer
-Bob;25;Designer
-Charlie;35;Manager
+trigram;type_of_data;date_of_extraction;branch;description;event_number;destination_type;custody_account;message_type;message_function;message_device;message_adress;message_reference_one;message_date;message_time;message_bulk
+trigram1;type_of_data1;date_of_extraction1;branch1;description1;event_number1;destination_type1;custody_account1;message_type1;message_function1;message_device1;message_adress1;message_reference_one1;message_date1;message_time1;message_bulk1

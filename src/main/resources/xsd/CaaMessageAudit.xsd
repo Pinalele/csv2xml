@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="urn:x-emc:com.bnpparibas:solar:solar:infoarchive:lama:london:1.13"
+    xmlns="urn:x-emc:com.bnpparibas:solar:solar:infoarchive:lama:london:1.13" elementFormDefault="qualified"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="londonCaaMessageAuditElement">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="londonNameElement" type="CaaMessageAuditObject" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="CaaMessageAuditObject">
+        <xs:sequence>
+            <xs:element name="trigram" type="xs:string"/>
+            <xs:element name="type_of_data" type="xs:string" />
+            <xs:element name="date_of_extraction" type="xs:string" />
+            <xs:element name="branch" type="xs:string" />
+            <xs:element name="londonCaaMessageAudit" type="CaaMessageAudit" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CaaMessageAudit">
+        <xs:sequence>
+            <xs:element name="event_number" type="xs:string"/>
+            <xs:element name="destination_type" type="xs:string"/>
+            <xs:element name="custody_account" type="xs:string"/>
+            <xs:element name="message_type" type="xs:string"/>
+            <xs:element name="message_function" type="xs:string"/>
+            <xs:element name="message_device" type="xs:string"/>
+            <xs:element name="message_adress" type="xs:string"/>
+            <xs:element name="message_reference_one" type="xs:string"/>
+            <xs:element name="message_date" type="xs:string"/>
+            <xs:element name="message_time" type="xs:string"/>
+            <xs:element name="message_bulk" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
